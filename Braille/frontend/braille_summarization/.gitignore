@@ -26,8 +26,5 @@ dist-ssr
 # Ignore all .pkl files
 *.pkl
 
-# Other files to ignore
-# .DS_Store
-# node_modules/
-# *.log
-# yarn-error.log*
+# Ignore all .h5 files
+*.h5

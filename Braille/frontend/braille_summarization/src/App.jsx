@@ -13,10 +13,10 @@ function App() {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImage(reader.result.split(",")[1]); // Extract only the Base64 part
-        setImagePreview(reader.result); // For preview, use the full Data URL
+        setImage(reader.result.split(",")[1]); // Extract the Base64 part
+        setImagePreview(reader.result); 
       };
-      reader.readAsDataURL(file); // Converts the file to a Base64 Data URL
+      reader.readAsDataURL(file);
     }
   };
 
@@ -33,7 +33,7 @@ function App() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ image }), // Send the Base64-encoded string
+        body: JSON.stringify({ image }), //Base64-encoded string
       });
 
       const data = await response.json();

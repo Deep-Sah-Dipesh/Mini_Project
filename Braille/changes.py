@@ -1,7 +1,7 @@
 import pandas as pd
 
 input_file = "captions_8k.txt"
-output_file = "generated_captionss.csv"
+output_file = "generated_captions.csv"
 
 with open(input_file, 'r') as f:
     lines = f.readlines()
