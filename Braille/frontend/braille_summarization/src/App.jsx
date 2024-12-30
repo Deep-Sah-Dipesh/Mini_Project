@@ -57,7 +57,7 @@ function App() {
 
       <main>
         <section className="upload-section">
-          <h2>Upload Any Image</h2>
+          <h2>Upload Any Image Below</h2>
           <input
             type="file"
             accept="image/*"
