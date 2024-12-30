@@ -13,8 +13,8 @@ function App() {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImage(reader.result.split(",")[1]); // Extract the Base64 part
-        setImagePreview(reader.result); 
+        setImage(reader.result.split(",")[1]); 
+        setImagePreview(reader.result);
       };
       reader.readAsDataURL(file);
     }
@@ -33,7 +33,7 @@ function App() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ image }), //Base64-encoded string
+        body: JSON.stringify({ image }), 
       });
 
       const data = await response.json();
@@ -51,13 +51,13 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Braille Caption Generator</h1>
+        <h1>Image Summarization and Braille Conversion</h1>
         <p>Upload an image to generate its caption and Braille text representation.</p>
       </header>
 
       <main>
         <section className="upload-section">
-          <h2>Upload Your Image</h2>
+          <h2>Upload Any Image</h2>
           <input
             type="file"
             accept="image/*"
@@ -74,18 +74,15 @@ function App() {
         {error && <div className="error">{error}</div>}
 
         <section className="output-section">
-          <h2>Generated Caption</h2>
+          <h2>Generated Caption for the Image</h2>
           <p>{caption}</p>
 
-          <h2>Braille Representation</h2>
+          <h2>Braille Representation of the Summary</h2>
           <p>{braille}</p>
         </section>
       </main>
 
-      <footer>
-        <p>Powered by Flask and React</p>
-      </footer>
-    </div>
+      </div>
   );
 }
 
