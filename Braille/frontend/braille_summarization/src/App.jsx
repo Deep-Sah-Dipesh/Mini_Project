@@ -13,7 +13,7 @@ function App() {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImage(reader.result.split(",")[1]); 
+        setImage(reader.result.split(",")[1]);
         setImagePreview(reader.result);
       };
       reader.readAsDataURL(file);
@@ -33,7 +33,7 @@ function App() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ image }), 
+        body: JSON.stringify({ image }),
       });
 
       const data = await response.json();
@@ -57,32 +57,27 @@ function App() {
 
       <main>
         <section className="upload-section">
-          <h2>Upload Any Image Below</h2>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
-          />
-          {imagePreview && (
-            <div className="image-preview">
-              <img src={imagePreview} alt="Uploaded Preview" />
-            </div>
-          )}
-          <button onClick={handleSubmit}>Generate Caption</button>
-        </section>
+          <div className="image-container">
+            <h2>Upload Image</h2>
+            <input type="file" accept="image/*" onChange={handleImageChange} />
+            {imagePreview && (
+              <div className="image-preview">
+                <img src={imagePreview} alt="Uploaded Preview" />
+              </div>
+            )}
+            <button onClick={handleSubmit}>Generate Caption</button>
+          </div>
 
-        {error && <div className="error">{error}</div>}
-
-        <section className="output-section">
-          <h2>Generated Caption for the Image</h2>
-          <p>{caption}</p>
-
-          <h2>Braille Representation of the Summary</h2>
-          <p>{braille}</p>
+          <div className="output-container">
+            {error && <div className="error">{error}</div>}
+            <h3>Generated Caption:</h3>
+            <p>{caption}</p>
+            <h3>Braille Representation:</h3>
+            <p>{braille}</p>
+          </div>
         </section>
       </main>
-
-      </div>
+    </div>
   );
 }
 
